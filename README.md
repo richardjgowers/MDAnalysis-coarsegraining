@@ -10,18 +10,25 @@ Current state is very WIP.
 
 Requires MDAnalysis.
 
-## Simple example, three water molecules coarse-grained into 3 sites:
-
+Simple example, three water molecules coarse-grained into 3 sites:
+```
 mapping = ([0, 1, 2],
            [3, 4, 5],
            [6, 7, 8])
+```
 
-# Make a CGUniverse object.
-# Designed to mimic a MDAnalysis Universe, but supplies information on beads not atoms
+Make a CGUniverse object.
+Designed to mimic a MDAnalysis Universe, but supplies information on beads not atoms
+```
 cgu = CGUniverse('new.gro', mapping=mapping)
+```
 
-# This is now a list of the beads
+This is now a list of the beads
+```
 list(cgu.atoms)
+```
 
-# Center of mass for each water molecule, ie 3 coordinates
+Center of mass for each water molecule, ie 3 coordinates
+```
 cgu.atoms.positions
+```
