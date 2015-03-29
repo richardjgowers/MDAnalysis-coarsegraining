@@ -78,7 +78,10 @@ class CGUniverse(mda.Universe):
 
         beadgroup = [Bead(b, i, 'BEAD' , 'BEAD', b[0].resname, b[0].resid, b[0].segid,
                           1.0, 1.0) for i, b in enumerate(beads)]
-
+        for b in beadgroup:
+            b.universe = self
+        self.universe = self
+        self.atoms = AtomGroup(beadgroup)
         self.beads = beadgroup
 
         # TODO: Wrap this in try except to catch errors in making fake Reader
