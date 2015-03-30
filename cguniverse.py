@@ -28,7 +28,7 @@ class Bead(Atom):
     """
 
     __slots__ = (
-        "_atoms",
+        "_atoms", "atoms",
         "number", "id", "name", "type", "resname", "resid", "segid",
         "mass", "charge", "residue", "segment",
         "__universe",
@@ -37,6 +37,7 @@ class Bead(Atom):
     def __init__(self, atoms, *args, **kwargs):
         """atoms should be an AtomGroup representing the bead"""
         self._atoms = atoms
+        self.atoms = AtomGroup(atoms)
         super(Bead, self).__init__(*args, ** kwargs)
 
     def __repr__(self):
@@ -47,10 +48,6 @@ class Bead(Atom):
                     altloc="" if not self.altLoc
                     else " and altloc {}".format(self.altLoc),
                     natoms=len(self._atoms)))
-
-    @property
-    def position(self):
-        return self._atoms.centerOfMass()
 
 
 class CGUniverse(mda.Universe):

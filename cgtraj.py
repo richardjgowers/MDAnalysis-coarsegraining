@@ -59,7 +59,7 @@ class CGTraj(base.Reader):
         """
         self.ts.frame = other_ts.frame
         self.ts._unitcell = other_ts._unitcell
-        self.ts._pos[:] = [b.position for b in self.beads]
+        self.ts._pos[:] = [b.atoms.centerOfMass() for b in self.beads]
 
     def _reopen(self):
         # Rewind my reference trajectory
