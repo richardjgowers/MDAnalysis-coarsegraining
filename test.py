@@ -10,9 +10,7 @@ from cguniverse import CGUniverse
 
 class TestCGUniverse(TestCase):
     def setUp(self):
-        mapping = ([0, 1, 2],
-                   [3, 4, 5],
-                   [6, 7, 8])
+        mapping = {'SOL': [[0, 1, 2]]}
 
         self.at_u = Universe('new.gro')
         self.u = CGUniverse('new.gro', mapping=mapping)
