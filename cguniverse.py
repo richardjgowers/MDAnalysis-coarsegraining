@@ -29,7 +29,7 @@ class Bead(Atom):
     """
 
     __slots__ = (
-        "_atoms", "atoms",
+        "atoms",
         "number", "id", "name", "type", "resname", "resid", "segid",
         "mass", "charge", "residue", "segment",
         "__universe",
@@ -37,7 +37,6 @@ class Bead(Atom):
 
     def __init__(self, atoms, *args, **kwargs):
         """atoms should be an AtomGroup representing the bead"""
-        self._atoms = atoms
         self.atoms = AtomGroup(atoms)
         super(Bead, self).__init__(*args, ** kwargs)
 
