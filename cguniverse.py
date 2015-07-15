@@ -94,7 +94,6 @@ class CGUniverse(mda.Universe):
                           1.0, 1.0) for i, b in enumerate(beads)]
         for b in beadgroup:
             b.universe = self
-        self.universe = self
         self.atoms = AtomGroup(beadgroup)
         self.beads = beadgroup
 
