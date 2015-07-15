@@ -8,12 +8,12 @@ from MDAnalysis import Universe
 from cguniverse import CGUniverse
 
 
-class TestCGUniverse(TestCase):
+class TestCGUniverse(object):
     def setUp(self):
         mapping = {'SOL': [[0, 1, 2]]}
 
-        self.at_u = Universe('new.gro')
-        self.u = CGUniverse('new.gro', mapping=mapping)
+        self.at_u = Universe('testdata/new.gro')
+        self.u = CGUniverse('testdata/new.gro', mapping=mapping)
 
     def tearDown(self):
         del self.at_u
