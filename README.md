@@ -18,11 +18,21 @@ from cguniverse import CGUniverse
 # for each resname, list of lists, each sublist becomes a bead.
 # the indices refer to 
 mapping = {'SOL':[[0, 1, 2]]}
-cgu = CGUniverse('new.gro', mapping=mapping)
+cgu = CGUniverse('testdata/water.gro', mapping=mapping)
 
 # The CGU has 3 "atoms", each representing a molecule
 list(cgu.atoms)
 
 # Each "atom" is a bead which gives the center of mass of each water molecule
 cgu.atoms.positions
+```
+
+Multiple beads per molecule.  Here octanol is split into 2 beads, the first beads has the first 11 atoms (`range(11)`), the second the remaining atoms.
+
+```python
+from cguniverse import CGUniverse
+
+mapping={'OcOH':[list(range(11)), list(range(11, 27))]}) # enough right brackets?
+
+cgu = CGUniverse('testdata/octanol.gro', mapping=mapping)
 ```
